@@ -10,13 +10,13 @@ reg CostMWLog_CPI_FX DeployedPowerGlobLog if PlantPowerEl > 4.99, robust
 
 *** Local experience models ***
 * Figure 3: Local experience models
-reg CostMWLog DeployedPowerNatLog if Country == "USA", robust
-reg CostMWLog DeployedPowerNatLog if Country == "IDN", robust
-reg CostMWLog DeployedPowerNatLog if Country == "PHI", robust
-reg CostMWLog DeployedPowerNatLog if Country == "TUR", robust
-reg CostMWLog DeployedPowerNatLog if Country == "NZL", robust
-reg CostMWLog DeployedPowerNatLog if Country == "KEN", robust
-reg CostMWLog DeployedPowerNatLog if Country == "GER", robust
+reg CostMWLog_CPI DeployedPowerNatLog if Country == "USA", robust
+reg CostMWLog_CPI DeployedPowerNatLog if Country == "IDN", robust
+reg CostMWLog_CPI DeployedPowerNatLog if Country == "PHI", robust
+reg CostMWLog_CPI DeployedPowerNatLog if Country == "TUR", robust
+reg CostMWLog_CPI DeployedPowerNatLog if Country == "NZL", robust
+reg CostMWLog_CPI DeployedPowerNatLog if Country == "KEN", robust
+reg CostMWLog_CPI DeployedPowerNatLog if Country == "GER", robust
 
 
 *** Supplemental regression analysis ***
@@ -30,24 +30,3 @@ reg CostMWLog_CPI_FX DeployedPowerNatLog if Country == "NZL", robust
 reg CostMWLog_CPI_FX DeployedPowerNatLog if Country == "KEN", robust
 reg CostMWLog_CPI_FX DeployedPowerNatLog if Country == "GER", robust
 
-* Figure S2: Robustness check: Local experience models with the first data point removed
-* Import data: Enter file path of xlsx file with the first data point of each country removed
-import excel "`file_path'", sheet("Sheet1") firstrow 
-reg CostMWLog DeployedPowerNatLog if Country == "USA", robust
-reg CostMWLog DeployedPowerNatLog if Country == "IDN", robust
-reg CostMWLog DeployedPowerNatLog if Country == "PHI", robust
-reg CostMWLog DeployedPowerNatLog if Country == "TUR", robust
-reg CostMWLog DeployedPowerNatLog if Country == "NZL", robust
-reg CostMWLog DeployedPowerNatLog if Country == "KEN", robust
-reg CostMWLog DeployedPowerNatLog if Country == "GER", robust
-
-* Figure S3: Robustness check: Local experience models with the first two data points removed
-* Import data: Enter file path of xlsx file with the first two data points of each country removed
-import excel "`file_path'", sheet("Sheet1") firstrow 
-reg CostMWLog DeployedPowerNatLog if Country == "USA", robust
-reg CostMWLog DeployedPowerNatLog if Country == "IDN", robust
-reg CostMWLog DeployedPowerNatLog if Country == "PHI", robust
-reg CostMWLog DeployedPowerNatLog if Country == "TUR", robust
-reg CostMWLog DeployedPowerNatLog if Country == "NZL", robust
-reg CostMWLog DeployedPowerNatLog if Country == "KEN", robust
-reg CostMWLog DeployedPowerNatLog if Country == "GER", robust
